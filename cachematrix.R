@@ -1,8 +1,20 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This R script contains two functions:
+##      1) makeCacheMatrix
+##      2) cacheSolve
+##
+## The first function provides functionality to cache a matrix and its
+## inverse.
+##
+## The second function uses the first function to provide the matrix and
+## its inverse to the first function so that the first function can cache
+## them. The second function calculates the inverse only if it doesn't 
+## exist in the cache matix object.
+##
 
-## Write a short comment describing this function
-
+## Object name: makeCacheMatrix
+## Functions: set( matrix ), matrix := get(), setInverse( inverse( matrix )),
+##            matirx_inverse := getInverse()
+##
 makeCacheMatrix <- function( cDataMatrix = matrix() ) {
         # Setting cMatrixInverse to NULL
         cMatrixInverse <- NULL
