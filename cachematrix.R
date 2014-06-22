@@ -2,40 +2,57 @@
 ##      1) makeCacheMatrix
 ##      2) cacheSolve
 ##
-## The first function provides functionality to cache a matrix and its
-## inverse.
+## The first function represents an object that allows caching of a 
+## matrix and its inverse.
 ##
-## The second function uses the first function to provide the matrix and
-## its inverse to the first function so that the first function can cache
-## them. The second function calculates the inverse only if it doesn't 
-## exist in the cache matix object.
+## The second function is a utility function that creates a makeCacheMatrix
+## object. The function accepts a makeCacheMatrix, calls its method to see
+## whether an inverse exists and if not, it performs the following tasks:
+##      1. Read the matrix using the getter
+##      2. Creates an inverse of the matrix
+##      3. Set the inverse to the makeCaheMatrix object using the setter
 ##
+
 
 ## Object name: makeCacheMatrix
 ## Functions: set( matrix ), matrix := get(), setInverse( inverse( matrix )),
 ##            matirx_inverse := getInverse()
-##
+## 
+## @params: cDataMatrix:matrix()
+## @returns: list
 makeCacheMatrix <- function( cDataMatrix = matrix() ) {
-        # Setting cMatrixInverse to NULL
+        # Initializer : Setting cMatrixInverse to NULL
         cMatrixInverse <- NULL
         
         # Setter function to set the data matrix for caching
+        #
+        # @params: matrixData:matrix()
+        # @returns: void
         set <- function( matrixData ) {
             cDataMatrix <<- matrixData
             cMatixInverse <<- NULL
         }
         
         # Getter function return the data matrix
+        #
+        # @params: void
+        # @returns: cDataMatrix:matrix()
         get <- function() {
             cDataMatrix
         }
         
         # Setting the inverse of data matrix to cache
+        #
+        # @params: inverse:matirx()
+        # returns: void
         setInverse <- function( inverse ) {
             cMatrixInverse <<- inverse
         }
         
         # Getter that returns the cached matrix inverse
+        #
+        # @params: void
+        # returns: cMatrixInverse:matrix()
         getInverse <- function() {
             cMatrixInverse
         }
